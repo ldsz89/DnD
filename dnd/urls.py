@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^home/', include('home.urls')),
     url(r'^ccreator/', include('ccreator.urls')),
+    url(r'^playermanager/', include('playermanager.urls')),
     url(r'^admin/', admin.site.urls),
 ]
