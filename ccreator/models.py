@@ -62,3 +62,8 @@ class Equipment(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
     url = models.CharField(max_length=250)
+
+class Spells(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    url = models.CharField(max_length=250)
