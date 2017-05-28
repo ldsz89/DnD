@@ -6,4 +6,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("You are in the character creator index page.")
+    context = {}
+    return render(request, 'ccreator/index.html', context)
