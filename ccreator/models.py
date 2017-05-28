@@ -13,7 +13,7 @@ class Character(models.Model):
     alignment = models.CharField(max_length=50)
     strength = models.IntegerField()
     dexterity = models.IntegerField()
-    constitution - models.IntegerField()
+    constitution = models.IntegerField()
     intelligence = models.IntegerField()
     wisdom = models.IntegerField()
     charisma = models.IntegerField()
@@ -42,3 +42,23 @@ class Character(models.Model):
     ideals = models.IntegerField()
     bonds = models.IntegerField()
     flaws = models.IntegerField()
+
+class CharacterFeatures(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    url = models.CharField(max_length=250)
+
+class Traits(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    url = models.CharField(max_length=250)
+
+class Languages(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    url = models.CharField(max_length=250)
+
+class Equipment(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    url = models.CharField(max_length=250)
