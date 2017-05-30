@@ -1,5 +1,70 @@
-<ul>
-  {% for character in characters %}
-  <li><a></a></li>
-  {% endfor %}
-</ul>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'playermanager/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'playermanager/simple-sidebar.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'playermanager/cells.css' %}" />
+
+<div id="wrapper">
+
+       <!-- Sidebar -->
+       <div id="sidebar-wrapper">
+           <ul class="sidebar-nav">
+               <li class="sidebar-brand">
+                   <a href="#">
+                       Start Bootstrap
+                   </a>
+               </li>
+               <li>
+                   <a href="#">Dashboard</a>
+               </li>
+               <li>
+                   <a href="#">Shortcuts</a>
+               </li>
+               <li>
+                   <a href="#">Overview</a>
+               </li>
+               <li>
+                   <a href="#">Events</a>
+               </li>
+               <li>
+                   <a href="#">About</a>
+               </li>
+               <li>
+                   <a href="#">Services</a>
+               </li>
+               <li>
+                   <a href="#">Contact</a>
+               </li>
+           </ul>
+       </div>
+       <!-- /#sidebar-wrapper -->
+
+       <!-- Page Content -->
+       <div id="page-content-wrapper">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-lg-12">
+                       <h1>Simple Sidebar</h1>
+                       {% if characters %}
+                           {% for character in characters %}
+                           <div class="col-md-4"><a href="/playermanager/{{ character.id }}">{{ character }}</a></div>
+                           {% endfor %}
+                       {% else %}
+                         <h2>You don't have any characters</h2>
+                       {% endif %}
+                       <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- /#page-content-wrapper -->
+
+   </div>
+   <!-- /#wrapper -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
