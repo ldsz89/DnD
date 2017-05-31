@@ -1,4 +1,4 @@
-.col-md-4 {
+.col-md-3, .col-md-2 {
   border: 5px solid red;
   border-radius: 5px;
 }

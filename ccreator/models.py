@@ -38,10 +38,10 @@ class Character(models.Model):
     armor_class = models.IntegerField(null=True)
     speed = models.IntegerField(null=True)
     hp = models.IntegerField(null=True)
-    personality = models.IntegerField(null=True)
-    ideals = models.IntegerField(null=True)
-    bonds = models.IntegerField(null=True)
-    flaws = models.IntegerField(null=True)
+    personality = models.CharField(max_length=250)
+    ideals = models.CharField(max_length=250)
+    bonds = models.CharField(max_length=250)
+    flaws = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name
@@ -49,7 +49,7 @@ class Character(models.Model):
 class CharacterFeatures(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
-    url = models.CharField(max_length=250)
+    url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -57,7 +57,7 @@ class CharacterFeatures(models.Model):
 class Traits(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
-    url = models.CharField(max_length=250)
+    url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -65,7 +65,7 @@ class Traits(models.Model):
 class Languages(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    url = models.CharField(max_length=250)
+    url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -73,7 +73,7 @@ class Languages(models.Model):
 class Equipment(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
-    url = models.CharField(max_length=250)
+    url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -81,7 +81,7 @@ class Equipment(models.Model):
 class Spells(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
-    url = models.CharField(max_length=250)
+    url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -46,7 +46,7 @@
                        <h1>Simple Sidebar</h1>
                        {% if characters %}
                            {% for character in characters %}
-                           <div class="col-md-4"><a href="/playermanager/{{ character.id }}">{{ character }}</a></div>
+                           <div class="col-md-2"><a href="{% url 'playermanager:detail' character.id %}">{{ character }}</a></div>
                            {% endfor %}
                        {% else %}
                          <h2>You don't have any characters</h2>
