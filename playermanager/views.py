@@ -14,6 +14,13 @@ def dashboard(request):
     }
     return render(request, 'playermanager/dashboard.html', context)
 
+def characters(request):
+    characters = Character.objects.all()
+    context = {
+        'characters': characters
+    }
+    return render(request, 'playermanager/characters.html', context)
+
 def detail(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
     return render(request, 'playermanager/detail.html', {'character': character})
