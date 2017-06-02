@@ -1,3 +1,7 @@
-you are in the detail page<br>
-The character ID is: {{ character.id }}<br>
-The character name is: {{ character }}
+{% extends 'playermanager/base.html' %}
+{% block body %}
+  <h1>{{ character }}</h1>
+  you are in the detail page<br>
+  The character ID is: {{ character.id }}<br>
+  <a href="{% url 'ccreator:edit' character.id%}">Edit</a>
+{% endblock %}

@@ -6,3 +6,7 @@
 hr {
   border: 1px solid black;
 }
+
+.portfolio-item {
+    margin-bottom: 25px;
+}

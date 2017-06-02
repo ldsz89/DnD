@@ -2,31 +2,26 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import get_object_or_404, render
-from django.http import Http404
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from ccreator.models import Character
 
 # Create your views here.
 
-def dashboard(request):
-    characters = Character.objects.all()
-    context = {
-        'characters': characters
-    }
-    return render(request, 'playermanager/dashboard.html', context)
+class DashboardView(generic.ListView):
+    template_name = 'playermanager/dashboard.html'
+    context_object_name = 'characters'
 
-def characters(request):
-    characters = Character.objects.all()
-    context = {
-        'characters': characters
-    }
-    return render(request, 'playermanager/characters.html', context)
+    def get_queryset(self):
+        return Character.objects.all()
 
-def detail(request, character_id):
-    character = get_object_or_404(Character, pk=character_id)
-    return render(request, 'playermanager/detail.html', {'character': character})
+class CharacterView(generic.ListView):
+    template_name = 'playermanager/characters.html'
+    context_object_name = 'characters'
 
-    # try:
-    #     character = Character.objects.get(pk=character_id)
-    # except Character.DoesNotExist:
-    #     raise Http404("Character does not exist")
-    # return render(request, 'playermanager/detail.html', {'character': character})
+    def get_queryset(self):
+        return Character.objects.all()
+
+class DetailView(generic.DetailView):
+    model = Character
+    template_name = 'playermanager/detail.html'

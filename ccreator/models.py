@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -42,6 +43,9 @@ class Character(models.Model):
     ideals = models.CharField(max_length=250)
     bonds = models.CharField(max_length=250)
     flaws = models.CharField(max_length=250)
+
+    def get_absolute_url(self):
+        return reverse('playermanager:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.name

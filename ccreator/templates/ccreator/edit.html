@@ -1,0 +1,14 @@
+{% extends 'ccreator/base.html' %}
+{% block body %}
+  <h1>Edit - {{ character }}</h1>
+  {% if error_message %}
+  <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+
+  <form action="{% url 'ccreator:edit' character.id%}" method="POST">
+    {% csrf_token %}
+    <label for="alignment">Alignment</label>
+    <input type="text" id="alignment" name="alignment" value="{{character.background}}"><br>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DnD</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'playermanager/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'playermanager/simple-sidebar.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'playermanager/cells.css' %}" />
+  </head>
+  <body>
+    <div id="wrapper">
+
+           <!-- Sidebar -->
+           <div id="sidebar-wrapper">
+               <ul class="sidebar-nav">
+                   <li class="sidebar-brand">
+                       <a href="#">
+                           Start Bootstrap
+                       </a>
+                   </li>
+                   <li>
+                       <a href="{% url 'playermanager:dashboard' %}">Dashboard</a>
+                   </li>
+                   <li>
+                       <a href="{% url 'playermanager:characters' %}">Characters</a>
+                   </li>
+                   <li>
+                       <a href="#">Games</a>
+                   </li>
+                   <li>
+                       <a href="#">Events</a>
+                   </li>
+                   <li>
+                       <a href="#">About</a>
+                   </li>
+                   <li>
+                       <a href="#">Services</a>
+                   </li>
+                   <li>
+                       <a href="#">Contact</a>
+                   </li>
+               </ul>
+           </div>
+           <!-- /#sidebar-wrapper -->
+
+           <!-- Page Content -->
+           <div id="page-content-wrapper">
+               <div class="container-fluid">
+                           {% block body %}
+                           {% endblock %}
+               </div>
+           </div>
+           <!-- /#page-content-wrapper -->
+
+       </div>
+       <!-- /#wrapper -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html
