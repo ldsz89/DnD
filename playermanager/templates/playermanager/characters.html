@@ -1,16 +1,31 @@
 {% extends 'playermanager/base.html' %}
+{% block character %}class="active"{% endblock %}
 {% block body %}
-   <h1>Characters</h1><hr>
+   <!-- <h1>Characters</h1><hr> -->
    {% if characters %}
-       {% for character in characters %}
-       <div class="row">
-         <div class="col-md-6 col-lg-6  portfolio-item">
-           <a href="{% url 'playermanager:detail' character.id %}">{{ character }}</a>
+     <div class="row">
+      {% for character in characters %}
+       <a href="{% url 'playermanager:detail' character.id %}"><div class="col-lg-3 col-md-6 col-sm-6">
+         <div class="card card-stats">
+           <div class="card-header" data-background-color="orange">
+             <i class="material-icons">content_copy</i>
+           </div>
+           <div class="card-content">
+             <h3>{{ character }}</h3>
+             <h4>{{ character.char_class }} | {{ character.race }} | Level: {{ character.level }}</h4>
+           </div>
+           <div class="card-footer">
+             <div class="stats">
+               <a href="#"><i class="material-icons">delete</i></a>
+             </div>
+           </div>
          </div>
-       </div>
-       {% endfor %}
+       </div></a>
+      {% endfor %}
+     </div>
    {% else %}
      <h2>You don't have any characters</h2>
    {% endif %}
    <a href="{% url 'ccreator:character-add' %}">Add Character</a>
+
 {% endblock %}

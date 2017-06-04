@@ -12,6 +12,7 @@ class Character(models.Model):
     race = models.CharField(max_length=50)
     background = models.CharField(max_length=50)
     alignment = models.CharField(max_length=50)
+    level = models.IntegerField(null=True)
     strength = models.IntegerField(null=True)
     dexterity = models.IntegerField(null=True)
     constitution = models.IntegerField(null=True)
