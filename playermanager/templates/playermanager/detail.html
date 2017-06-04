@@ -3,5 +3,11 @@
   <h1>{{ character }}</h1>
   you are in the detail page<br>
   The character ID is: {{ character.id }}<br>
-  <a href="{% url 'ccreator:edit' character.id%}">Edit</a>
+  <a href="{% url 'ccreator:character-update' character.id %}">Edit</a>
+  <form action="{% url 'ccreator:character-delete' character.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="character_id" value="{{ character.id }}">
+    <button type="submit" class="btn btn-default btn-sm">Delete</button>
+  </form>
+  <a href="{% url 'ccreator:character-delete' character.id %}">Delete</a>
 {% endblock %}
