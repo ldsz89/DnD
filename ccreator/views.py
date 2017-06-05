@@ -18,19 +18,19 @@ class EditView(generic.DetailView):
 
 class CharacterCreate(CreateView):
     model = Character
-    fields = ['name', 'char_class', 'race', 'background', 'alignment',
+    fields = ['name', 'char_class', 'race', 'background', 'alignment', 'level',
     'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma',
     'acrobatics', 'animal_handling', 'arcana', 'athletics', 'deception', 'history',
         'insight', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion',
-        'sleight_of_hand', 'stealth', 'survival']
+        'sleight_of_hand', 'stealth', 'survival', 'avatar']
 
 class CharacterUpdate(UpdateView):
     model = Character
-    fields = ['name', 'char_class', 'race', 'background', 'alignment',
+    fields = ['name', 'char_class', 'race', 'background', 'alignment', 'level',
     'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma',
     'acrobatics', 'animal_handling', 'arcana', 'athletics', 'deception', 'history',
         'insight', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion',
-        'sleight_of_hand', 'stealth', 'survival']
+        'sleight_of_hand', 'stealth', 'survival', 'avatar']
 
 class CharacterDelete(DeleteView):
     models = Character

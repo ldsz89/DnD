@@ -1,15 +1,6 @@
 {% extends 'playermanager/base.html' %}
 {% block character %}class="active"{% endblock %}
 {% block body %}
-  <h1>{{ character }}</h1>
-  you are in the detail page<br>
-  The character ID is: {{ character.id }}<br>
-  <a href="{% url 'ccreator:character-update' character.id %}">Edit</a>
-  <form action="{% url 'ccreator:character-delete' character.id %}" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="character_id" value="{{ character.id }}">
-    <button type="submit" class="btn btn-default btn-sm">Delete</button>
-  </form>
   <a href="{% url 'ccreator:character-delete' character.id %}">Delete</a>
 
 
@@ -18,117 +9,297 @@
 
 
 
-  
+
   <div class="row">
       <div class="col-md-8">
           <div class="card">
               <div class="card-header" data-background-color="purple">
-                  <h4 class="title">Edit Profile</h4>
-  <p class="category">Complete your profile</p>
+                  <h2 class="title">{{ character }}</h2>
               </div>
               <div class="card-content">
                   <form>
                       <div class="row">
-                          <div class="col-md-5">
-        <div class="form-group label-floating">
-          <label class="control-label">Company (disabled)</label>
-          <input type="text" class="form-control" disabled>
-        </div>
+                        <div class="col-md-5">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Race</label>
+                            <input type="text" class="form-control" value="{{ character.race }}" disabled>
                           </div>
-                          <div class="col-md-3">
-        <div class="form-group label-floating">
-          <label class="control-label">Username</label>
-          <input type="text" class="form-control" >
-        </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Class</label>
+                            <input type="text" class="form-control" value="{{ character.char_class }}" disabled>
                           </div>
-                          <div class="col-md-4">
-        <div class="form-group label-floating">
-          <label class="control-label">Email address</label>
-          <input type="email" class="form-control" >
-        </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Level</label>
+                            <input type="email" class="form-control" value="{{ character.level }}" disabled>
                           </div>
+                        </div>
                       </div>
 
                       <div class="row">
                           <div class="col-md-6">
-        <div class="form-group label-floating">
-          <label class="control-label">Fist Name</label>
-          <input type="text" class="form-control" >
-        </div>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Background</label>
+                              <input type="text" class="form-control" value="{{ character.background }}" disabled>
+                            </div>
                           </div>
                           <div class="col-md-6">
-        <div class="form-group label-floating">
-          <label class="control-label">Last Name</label>
-          <input type="text" class="form-control" >
-        </div>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Alignment</label>
+                              <input type="text" class="form-control" value="{{ character.alignment }}" disabled>
+                            </div>
                           </div>
+                      </div>
+
+                      <div class="card-header" data-background-color="purple">
+                          <h4 class="title">Attributes</h4>
                       </div>
 
                       <div class="row">
-                          <div class="col-md-12">
-        <div class="form-group label-floating">
-          <label class="control-label">Adress</label>
-          <input type="text" class="form-control" >
-        </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Strength</label>
+                              <input type="text" class="form-control" value="{{ character.strength }}" disabled>
+                            </div>
                           </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Dexterity</label>
+                              <input type="text" class="form-control" value="{{ character.dexterity }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Constitution</label>
+                              <input type="text" class="form-control" value="{{ character.constitution }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Tntelligence</label>
+                              <input type="text" class="form-control" value="{{ character.intelligence }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Wisdom</label>
+                              <input type="text" class="form-control" value="{{ character.wisdom }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group label-floating">
+                              <label class="control-label">Charisma</label>
+                              <input type="text" class="form-control" value="{{ character.charisma }}" disabled>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="card-header" data-background-color="purple">
+                          <h4 class="title">Skills</h4>
                       </div>
 
                       <div class="row">
-                          <div class="col-md-4">
-        <div class="form-group label-floating">
-          <label class="control-label">City</label>
-          <input type="text" class="form-control" >
-        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Acrobatics</label>
+                            <input type="text" class="form-control" value="{{ character.acrobatics }}" disabled>
                           </div>
-                          <div class="col-md-4">
-        <div class="form-group label-floating">
-          <label class="control-label">Country</label>
-          <input type="text" class="form-control" >
-        </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Animal Handling</label>
+                            <input type="text" class="form-control" value="{{ character.animal_handling }}" disabled>
                           </div>
-                          <div class="col-md-4">
-        <div class="form-group label-floating">
-          <label class="control-label">Postal Code</label>
-          <input type="text" class="form-control" >
-        </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Arcana</label>
+                            <input type="text" class="form-control" value="{{ character.arcana }}" disabled>
                           </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Athletics</label>
+                            <input type="text" class="form-control" value="{{ character.athletics }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Deception</label>
+                            <input type="text" class="form-control" value="{{ character.deception }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">History</label>
+                            <input type="text" class="form-control" value="{{ character.history }}" disabled>
+                          </div>
+                        </div>
                       </div>
 
                       <div class="row">
-                          <div class="col-md-12">
-                              <div class="form-group">
-                                  <label>About Me</label>
-          <div class="form-group label-floating">
-              <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-              <textarea class="form-control" rows="5"></textarea>
-                      </div>
-                              </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Insight</label>
+                            <input type="text" class="form-control" value="{{ character.insight }}" disabled>
                           </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Intimidation</label>
+                            <input type="text" class="form-control" value="{{ character.intimidation }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Investigation</label>
+                            <input type="text" class="form-control" value="{{ character.investigation }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Medicine</label>
+                            <input type="text" class="form-control" value="{{ character.medicine }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Nature</label>
+                            <input type="text" class="form-control" value="{{ character.nature }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Perception</label>
+                            <input type="text" class="form-control" value="{{ character.perception }}" disabled>
+                          </div>
+                        </div>
                       </div>
 
-                      <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Performance</label>
+                            <input type="text" class="form-control" value="{{ character.performance }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Persuasion</label>
+                            <input type="text" class="form-control" value="{{ character.persuasion }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Religion</label>
+                            <input type="text" class="form-control" value="{{ character.religion }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Sleight of Hand</label>
+                            <input type="text" class="form-control" value="{{ character.sleight_of_hand }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Stealth</label>
+                            <input type="text" class="form-control" value="{{ character.stealth }}" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Survival</label>
+                            <input type="text" class="form-control" value="{{ character.survival }}" disabled>
+                          </div>
+                        </div>
+                      </div>
                       <div class="clearfix"></div>
                   </form>
               </div>
           </div>
       </div>
-<div class="col-md-4">
-<div class="card card-profile">
-  <div class="card-avatar">
-    <a href="#pablo">
-      <img class="img" src="../assets/img/faces/marc.jpg" />
-    </a>
-  </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-image">
+            <img class="img" src="{{ character.avatar.url }}" />
+          </div>
 
-  <div class="content">
-    <h6 class="category text-gray">CEO / Co-Founder</h6>
-    <h4 class="card-title">Alec Thompson</h4>
-    <p class="card-content">
-      Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-    </p>
-    <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
-  </div>
-</div>
-</div>
-  </div>
+          <div class="content">
+            <h6 class="category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-content">
+              Personality: {{ character.personality }}<br>
+              Ideals: {{ character.ideals }}
+            </p>
+            <a href="{% url 'ccreator:character-update' character.id %}" class="btn btn-primary btn-round"><i class="material-icons">mode edit</i> Edit</a>
+            <a href="#" class="btn btn-primary pull-right">Update <i class="material-icons">mode edit</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <h3>Features</h3>
+          </div>
+          <div class="card-content">
+            {% for feature in features %}
+            <p>{{ feature }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <h3>Languages</h3>
+          </div>
+          <div class="card-content">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <h3>Traits</h3>
+          </div>
+          <div class="card-content">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <h3>Equipment</h3>
+          </div>
+          <div class="card-content">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" data-background-color="purple">
+            <h3>Spells</h3>
+          </div>
+          <div class="card-content">
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}
