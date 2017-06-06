@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth import authenticate, login
+from django.views.generic import View
+
 from ccreator.models import Character, Feature, Trait, Language, Equipment, Spell
+from .forms import UserForm
 
 # Create your views here.
 
@@ -28,10 +32,43 @@ class DetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        # context['features'] = CharacterFeatures.objects.filter(character__exact=super(DetailView, self).model)
         context['features'] = Feature.objects.filter(character__exact=self.kwargs['pk'])
         context['traits'] = Trait.objects.filter(character__exact=self.kwargs['pk'])
         context['languages'] = Language.objects.filter(character__exact=self.kwargs['pk'])
         context['equipment'] = Equipment.objects.filter(character__exact=self.kwargs['pk'])
         context['spells'] = Spell.objects.filter(character__exact=self.kwargs['pk'])
         return context
+
+class UserFormView(View):
+    form_class = UserForm
+    template_name = 'playermanager/registration_form.html'
+
+    # display blank form
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form})
+
+    # process form data
+    def post(self, request):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            # saves what the user inputs so we can do things with it. DOES NOT save info to the database
+            user = form.save(commit=False)
+
+            # cleaned (normalized) data
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user.set_password(password)
+            # this line saves to the database
+            user.save()
+
+            # returns User objects if creditials are correct
+            user = authenticate(username = username, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return redirect('playermanager:dashboard')
+
+        return render(request, self.template_name, {'form': form})

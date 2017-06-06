@@ -5,6 +5,8 @@ from . import views
 app_name = 'playermanager'
 
 urlpatterns = [
+    # /playermanager/register/
+    url(r'^register/$', views.UserFormView.as_view(), name='register'),
     # /playermanager/
     url(r'^$', views.DashboardView.as_view(), name='dashboard'),
     # /playermanager/characers/

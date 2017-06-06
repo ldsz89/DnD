@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404,render
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from .models import Character
+from .models import Character, Feature
 
 # Create your views here.
 def index(request):
@@ -23,6 +23,11 @@ class CharacterCreate(CreateView):
     'acrobatics', 'animal_handling', 'arcana', 'athletics', 'deception', 'history',
         'insight', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion',
         'sleight_of_hand', 'stealth', 'survival', 'avatar']
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context['features'] = Feature.objects.all()
+        return context
 
 class CharacterUpdate(UpdateView):
     model = Character

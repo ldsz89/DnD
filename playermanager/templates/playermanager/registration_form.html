@@ -1,0 +1,55 @@
+{% extends 'playermanager/base.html' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="card card-signup">
+      <div class="card-header text-center" data-background-color="purple">
+        <h4>Sign Up</h4>
+      </div>
+      <div class="card-content">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% include 'ccreator/form-template.html' %}
+        <!-- <div class="row">
+          <div class="col-md-12">
+            <div class="form-group label-floating">
+              <label class="control-label"><label>Username</label></label>
+              <input type="text" class="form-control" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group label-floating">
+              <label class="control-label">Email</label>
+              <input type="text" class="form-control" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group label-floating">
+              <label class="control-label">Password</label>
+              <input type="text" class="form-control" value="">
+            </div> -->
+            <button type="submit" class="btn btn-primary btn-round pull-right">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+var list = document.getElementsByTagName("INPUT");
+var i=0;
+while(list){
+  list[i].className = "form-control";
+  i++;
+}
+</script>
+{% endblock %}
