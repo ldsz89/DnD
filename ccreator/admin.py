@@ -2,19 +2,19 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Character, CharacterFeatures, Traits, Languages, Equipment, Spells
+from .models import Character, Feature, Trait, Language, Equipment, Spell
 
 # Register your models here.
 class FeatureInLine(admin.TabularInline):
-    model = CharacterFeatures
+    model = Feature
     extra = 1
 
 class TraitsInLine(admin.TabularInline):
-    model = Traits
+    model = Trait
     extra = 1
 
 class LanguagesInLine(admin.TabularInline):
-    model = Languages
+    model = Language
     extra = 1
 
 class EquipmentInLine(admin.TabularInline):
@@ -22,7 +22,7 @@ class EquipmentInLine(admin.TabularInline):
     extra = 1
 
 class SpellsInLine(admin.TabularInline):
-    model = Spells
+    model = Spell
     extra = 1
 
 class CharacterAdmin(admin.ModelAdmin):

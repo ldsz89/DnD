@@ -262,18 +262,24 @@
             <h3>Languages</h3>
           </div>
           <div class="card-content">
+            {% for language in languages %}
+              <p>{{ language }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header" data-background-color="purple">
             <h3>Traits</h3>
           </div>
           <div class="card-content">
+            {% for trait in traits %}
+              <p>{{ trait }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -286,6 +292,9 @@
             <h3>Equipment</h3>
           </div>
           <div class="card-content">
+            {% for item in equipment %}
+              <p>{{ item }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -298,6 +307,9 @@
             <h3>Spells</h3>
           </div>
           <div class="card-content">
+            {% for spell in spells %}
+              <p>{{ spell }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>

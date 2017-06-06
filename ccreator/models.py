@@ -52,25 +52,28 @@ class Character(models.Model):
     def __str__(self):
         return self.name
 
-class CharacterFeatures(models.Model):
+class Feature(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
+    description = models.CharField(max_length=1000)
     url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
-class Traits(models.Model):
+class Trait(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
+    description = models.CharField(max_length=1000)
     url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
-class Languages(models.Model):
+class Language(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
+    description = models.CharField(max_length=1000)
     url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
@@ -79,14 +82,16 @@ class Languages(models.Model):
 class Equipment(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
+    description = models.CharField(max_length=1000)
     url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
-class Spells(models.Model):
+class Spell(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
+    description = models.CharField(max_length=1000)
     url = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
