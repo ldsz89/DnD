@@ -5,13 +5,13 @@
   <div class="col-md-offset-4 col-md-4">
     <div class="card card-signup">
       <div class="card-header text-center" data-background-color="purple">
-        <h4>Sign Up</h4>
+        <h4>Login</h4>
       </div>
       <div class="card-content">
         <form action="" method="post">
           {% csrf_token %}
           {% include 'ccreator/form-template.html' %}
-          <button type="submit" class="btn btn-primary btn-round pull-right">Sign Up</button>
+          <button type="submit" class="btn btn-primary btn-round pull-right">Login</button>
         </form>
       </div>
     </div>
