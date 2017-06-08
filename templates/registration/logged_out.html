@@ -1,0 +1,16 @@
+{% extends 'playermanager/base.html' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="card card-profile">
+      <div class="card-header text-center" data-background-color="purple">
+        <h4>Logged Out</h4>
+      </div>
+      <div class="card-content">
+        <a class="btn btn-primary btn-round" href="{% url 'login'%}">Click here to login again.</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

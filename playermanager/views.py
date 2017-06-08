@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
+from django. contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.views.generic import View
 from django import forms
@@ -12,7 +14,8 @@ from ccreator.models import Character, Feature, Trait, Language, Equipment, Spel
 from .forms import UserForm, UserLoginForm
 
 # Create your views here.
-
+# put @login_requiered before any page you want to require login
+# @login_required
 class DashboardView(generic.ListView):
     template_name = 'playermanager/dashboard.html'
     context_object_name = 'characters'
@@ -73,44 +76,3 @@ class UserFormView(View):
                     return redirect('playermanager:dashboard')
 
         return render(request, self.template_name, {'form': form})
-
-def login_view(request):
-    form = UserLoginForm(request.POST or None)
-    if form.is_valid():
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
-        user = authenticate(usernam=username, password=password)
-        login(request, user)
-        return redirect('playermanager:dashboard')
-
-    return render(request, 'playermanager/login_form.html', {'form': form})
-
-class UserLoginView(View):
-    form_class = UserLoginForm
-    template_name = 'playermanager/login_form.html'
-
-    # display blank form
-    def get(self, request):
-        print("Method is get")
-        print(request.user.is_authenticated())
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
-
-    # process form data
-    def post(self, request):
-        print("Method is post")
-        print(request.user.is_authenticated())
-        form = self.form_class(request.POST)
-
-        if form.is_valid():
-            # cleaned (normalized) data
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(username = username, password=password)
-            login(request, user)
-            print(request.user.is_authenticated())
-
-        return render(request, self.template_name, {'form': form})
-
-class UserLogoutView(View):
-    form_class = UserLoginForm

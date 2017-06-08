@@ -1,0 +1,69 @@
+{% extends 'playermanager/base.html' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="card card-signup">
+      <div class="card-header text-center" data-background-color="purple">
+        <h4>Login</h4>
+      </div>
+      <div class="card-content">
+
+        {% if form.errors %}
+          <p class="alert alert-danger">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <!-- {% if next %}
+            {% if user.is_authenticated %}
+            <p class="alert alert-danger">Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+            {% else %}
+            <p class="alert alert-danger">Please login to see this page.</p>
+            {% endif %}
+        {% endif %} -->
+
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating">
+                <td><label class="control-label">{{ form.username.label_tag }}</label></td>
+                <!-- <td>{{ form.username }}</td> -->
+                <td><input class="form-control" id="{{ form.username.id_for_label }}" maxlength="254" name="{{ form.username.html_name }}" type="text" /> </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating">
+                <td><label class="control-label">{{ form.password.label_tag }}</label></td>
+                <!-- <td>{{ form.password }}</td> -->
+                <td><input class="form-control" id="{{ form.password.id_for_label }}" maxlength="254" name="{{ form.password.html_name }}" type="password" /> </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-offset-9 col-xs-1 col-sm-offset-9 col-sm-1 col-md-offset-9 col-md-1">
+              <input type="submit" value="login" class="btn btn-primary btn-round">
+              <input type="hidden" name="next" value="{{ next }}">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<!-- <script>
+// document.getElementById("id_name").className = "form-control";
+var list = document.getElementsByTagName("INPUT");
+var i=0;
+while(list){
+  list[i].className = "form-control";
+  i++;
+}
+</script> -->
+{% endblock %}

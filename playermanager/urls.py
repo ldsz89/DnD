@@ -8,9 +8,9 @@ urlpatterns = [
     # /playermanager/register/
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
     # /playermanager/login/
-    url(r'^login/$', views.login_view, name='login'),
+    # url(r'^login/$', views.login_view, name='login'),
     # /playermanager/login/
-    url(r'^logout/$', views.UserLogoutView.as_view(), name='logout'),
+    # url(r'^logout/$', views.UserLogoutView.as_view(), name='logout'),
     # /playermanager/
     url(r'^$', views.DashboardView.as_view(), name='dashboard'),
     # /playermanager/characers/

@@ -1,6 +1,22 @@
 {% extends 'playermanager/base.html' %}
+
 {% block dashboard %}class="active"{% endblock %}
+
+{% block user %}
+  {% if user.is_authenticated %}
+    {{ user.get_username }}
+  {% endif %}
+{% endblock %}
+
 {% block body %}
+  {% if next %}
+      {% if user.is_authenticated %}
+      <p class="alert alert-danger">Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+      {% else %}
+      <p class="alert alert-danger">Please login to see this page.</p>
+      {% endif %}
+  {% endif %}
   {% if characters %}
     <div class="row">
      {% for character in characters %}
