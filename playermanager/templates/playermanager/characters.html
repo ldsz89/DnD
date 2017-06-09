@@ -11,7 +11,11 @@
          <div class="card card-profile">
            <div class="card-avatar" data-background-color="orange">
              <!-- <i class="material-icons">content_copy</i> -->
-             <img class="img" src="{{ character.avatar.url }}" />
+             {% if character.avatar is not None %}
+               <!-- <img class="img" src="{{ character.avatar.url }}" /> -->
+             {% else %}
+               <i class="material-icons">face</i>
+             {% endif %}
            </div>
            <div class="card-content">
              <h3>{{ character }}</h3>

@@ -2,11 +2,11 @@
 
 {% block dashboard %}class="active"{% endblock %}
 
-{% block user %}
+<!-- {% block user %}
   {% if user.is_authenticated %}
     {{ user.get_username }}
   {% endif %}
-{% endblock %}
+{% endblock %} -->
 
 {% block body %}
   {% if next %}
@@ -22,8 +22,8 @@
      {% for character in characters %}
       <a href="{% url 'playermanager:detail' character.id %}"><div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
-          <div class="card-header" data-background-color="orange">
-            <i class="material-icons">content_copy</i>
+          <div class="card-avatar" data-background-color="orange">
+            <i class="material-icons">face</i>
           </div>
           <div class="card-content">
             <h3>{{ character }}</h3>

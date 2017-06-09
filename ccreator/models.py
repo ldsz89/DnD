@@ -3,10 +3,12 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Character(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=250)
     char_class = models.CharField(max_length=50, null=True, blank=True)
     race = models.CharField(max_length=50, null=True, blank=True)
@@ -44,7 +46,7 @@ class Character(models.Model):
     ideals = models.CharField(max_length=250, null=True, blank=True)
     bonds = models.CharField(max_length=250, null=True, blank=True)
     flaws = models.CharField(max_length=250, null=True, blank=True)
-    avatar = models.FileField(null=True, blank=True)
+    avatar = models.FileField(null=True, blank=True, default=None)
 
     def get_absolute_url(self):
         return reverse('playermanager:detail', kwargs={'pk': self.pk})

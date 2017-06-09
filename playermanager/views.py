@@ -23,12 +23,22 @@ class DashboardView(generic.ListView):
     def get_queryset(self):
         return Character.objects.all()
 
+# @login_required(login_url='/accounts/login/')
 class CharacterView(generic.ListView):
     template_name = 'playermanager/characters.html'
     context_object_name = 'characters'
 
     def get_queryset(self):
         return Character.objects.all()
+
+@login_required(login_url='/accounts/login/')
+def character_view(request):
+    current_user = request.user
+    characters = Character.objects.filter(user__exact=current_user.id)
+    context = {
+        'characters': characters,
+    }
+    return render(request, 'playermanager/characters.html', context)
 
 class DetailView(generic.DetailView):
     model = Character

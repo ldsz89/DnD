@@ -27,6 +27,7 @@ class SpellsInLine(admin.TabularInline):
 
 class CharacterAdmin(admin.ModelAdmin):
     fieldsets = [
+        ('User', {'fields': ['user']}),
         ('Character Info', {'fields': ['name', 'char_class', 'race', 'background', 'alignment', 'level', 'avatar']}),
         ('Personality', {'fields': ['personality', 'ideals', 'bonds', 'flaws']}),
         ('Attributes', {'fields': ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']}),
