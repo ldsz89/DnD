@@ -7,20 +7,284 @@ class="active"
 {% block body %}
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
-      <div class="card-header" data-background-color="purple">
-        <h4 class="title">Edit Character</h4>
-      </div>
-      <form class="" action="" method="post" enctype="multipart/form-data">
+      <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {% include 'ccreator/form-template.html' %}
+        <!-- {% include 'ccreator/form-template.html' %} -->
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title">Attributes</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.strength.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.strength.id_for_label }}" name="{{ form.strength.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.dexterity.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.dexterity.id_for_label }}" name="{{ form.dexterity.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.constitution.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.constitution.id_for_label }}" name="{{ form.constitution.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.intelligence.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.intelligence.id_for_label }}" name="{{ form.intelligence.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.wisdom.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.wisdom.id_for_label }}" name="{{ form.wisdom.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.charisma.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.charisma.id_for_label }}" name="{{ form.charisma.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title">About</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.name.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.level.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.level.id_for_label }}" name="{{ form.level.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.char_class.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.char_class.id_for_label }}" name="{{ form.char_class.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.race.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.race.id_for_label }}" name="{{ form.race.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.alignment.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.alignment.id_for_label }}" name="{{ form.alignment.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title">Skills</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.acrobatics.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.acrobatics.id_for_label }}" name="{{ form.acrobatics.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.animal_handling.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.animal_handling.id_for_label }}" name="{{ form.animal_handling.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.arcana.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.arcana.id_for_label }}" name="{{ form.arcana.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.athletics.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.athletics.id_for_label }}" name="{{ form.athletics.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.deception.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.deception.id_for_label }}" name="{{ form.deception.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.history.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.history.id_for_label }}" name="{{ form.history.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.insight.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.insight.id_for_label }}" name="{{ form.insight.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.intimidation.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.intimidation.id_for_label }}" name="{{ form.intimidation.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.investigation.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.investigation.id_for_label }}" name="{{ form.investigation.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.medicine.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.medicine.id_for_label }}" name="{{ form.medicine.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.nature.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.nature.id_for_label }}" name="{{ form.nature.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.perception.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.perception.id_for_label }}" name="{{ form.perception.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.performance.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.performance.id_for_label }}" name="{{ form.performance.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.persuasion.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.persuasion.id_for_label }}" name="{{ form.persuasion.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.religion.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.religion.id_for_label }}" name="{{ form.religion.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.sleight_of_hand.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.sleight_of_hand.id_for_label }}" name="{{ form.sleight_of_hand.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.stealth.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.stealth.id_for_label }}" name="{{ form.stealth.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.survival.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.survival.id_for_label }}" name="{{ form.survival.html_name }}" type="number"/></td>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title">Personality</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.personality.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.personality.id_for_label }}" name="{{ form.personality.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.ideals.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.ideals.id_for_label }}" name="{{ form.ideals.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.bonds.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.bonds.id_for_label }}" name="{{ form.bonds.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.flaws.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.flaws.id_for_label }}" name="{{ form.flaws.html_name }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="">
+                      <td><label class="">{{ form.avatar.label_tag }}</label></td>
+                      <td><input class="" id="{{ form.avatar.id_for_label }}" name="{{ form.avatar.html_name }}" type="file"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.user.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.user.id_for_label }}" name="{{ form.user.html_name }}" type="hidden" value="{{ user.id }}"/></td>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary pull-right">Submit</button>
           </div>
         </div>
       </form>
-    </div>
   </div>
 </div>
 {% endblock %}
