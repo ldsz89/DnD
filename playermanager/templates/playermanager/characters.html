@@ -11,7 +11,6 @@
          <div class="card card-profile">
            {% if character.avatar %}
            <div class="card-avatar" data-background-color="orange">
-             <!-- <i class="material-icons">content_copy</i> -->
                <img class="img" src="{{ character.avatar.url }}" />
            </div>
            {% else %}
@@ -25,7 +24,7 @@
            </div>
            <div class="card-footer">
              <div class="stats">
-               <a href="#" class="btn btn-danger btn-round"><i class="material-icons">delete</i></a>
+               <a href="{% url 'ccreator:character-delete' character.id%}" class="btn btn-danger btn-round"><i class="material-icons">delete</i></a>
              </div>
            </div>
          </div>

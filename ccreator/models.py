@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.core.urlresolvers import reverse
+from dnd import settings
+import os
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -50,6 +52,11 @@ class Character(models.Model):
 
     def get_absolute_url(self):
         return reverse('playermanager:detail', kwargs={'pk': self.pk})
+
+    def delete(self):
+        if self.avatar.name:
+            os.remove(settings.MEDIA_ROOT+'media/'+self.avatar.path)
+        return super(Character, self).delete()
 
     def __str__(self):
         return self.name

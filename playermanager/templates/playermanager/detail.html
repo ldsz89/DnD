@@ -5,6 +5,7 @@
 {% block body %}
   <a href="{% url 'ccreator:character-delete' character.id %}">Delete</a>
 
+  <!-- About -->
   <div class="row">
     <div class="col-md-8">
         <div class="card">
@@ -72,8 +73,7 @@
             Bonds: {{  character.bonds}}<br>
             Flaws: {{ character.flaws }}
           </p>
-          <a href="{% url 'ccreator:character-update' character.id %}" class="btn btn-primary btn-round"><i class="material-icons">mode edit</i> Edit</a>
-          <a href="#" class="btn btn-primary pull-right">Update <i class="material-icons">mode edit</i></a>
+          <a href="{% url 'ccreator:character-update' character.id %}" class="btn btn-primary btn-round">Update</a>
         </div>
       </div>
     </div>

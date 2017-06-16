@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import get_object_or_404,render
+from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
 from .models import Character, Feature
 
 # Create your views here.
-def index(request):
-    context = {}
-    return render(request, 'ccreator/index.html', context)
-
-class EditView(generic.DetailView):
-    template_name = 'ccreator/edit.html'
-    context_object_name = 'character'
-
 class CharacterCreate(CreateView):
     model = Character
     fields = ['name', 'char_class', 'race', 'background', 'alignment', 'level',
@@ -42,3 +37,17 @@ class CharacterUpdate(UpdateView):
 class CharacterDelete(DeleteView):
     models = Character
     success_url = reverse_lazy('playermanager:characters')
+
+@login_required(login_url='/accounts/login/')
+def character_delete(request, pk):
+    character = get_object_or_404(Character, pk=pk)
+    context = {
+        'character': character
+    }
+    if request.method == "POST":
+        name = character.name
+        parent_obj_url = character.get_absolute_url()
+        character.delete()
+        # messages.success(request, name+" has been deleted.")
+        return render(request, 'playermanager/characters.html', context)
+    return render(request, 'ccreator/confirm_delete.html', context)
