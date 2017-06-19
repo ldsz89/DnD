@@ -13,9 +13,7 @@ from django import forms
 from ccreator.models import Character, Feature, Trait, Language, Equipment, Spell
 from .forms import UserForm, UserLoginForm
 
-# Create your views here.
-# put @login_requiered before any page you want to require login
-# @login_required
+# @login_required(login_url='/accounts/login/')
 class DashboardView(generic.ListView):
     template_name = 'playermanager/dashboard.html'
     context_object_name = 'characters'
@@ -24,6 +22,7 @@ class DashboardView(generic.ListView):
         return Character.objects.all()
 
 # @login_required(login_url='/accounts/login/')
+# TO BE DELETED
 class CharacterView(generic.ListView):
     template_name = 'playermanager/characters.html'
     context_object_name = 'characters'

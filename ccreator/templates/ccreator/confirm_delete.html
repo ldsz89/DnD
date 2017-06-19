@@ -20,6 +20,11 @@
         <h4>{{ character.char_class }} | {{ character.race }} | Level: {{ character.level }}</h4>
       </div>
     </div>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
     <input type="hidden" name="parent_id" value="{{ character.id }}">
     <input type="submit" value="Confirm" class="btn btn-default">
     <a href="{{ character.get_absolute_url }}" class="btn btn-default">Cancel</a>

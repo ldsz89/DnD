@@ -285,6 +285,32 @@ class="active"
           </div>
         </div>
 
+        <!-- Features -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title">Personality</h4>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.description.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}" value="{{ form.description.value }}" type="text"/></td>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group label-floating">
+                      <td><label class="control-label">{{ form.ideals.label_tag }}</label></td>
+                      <td><input class="form-control" id="{{ form.ideals.id_for_label }}" name="{{ form.ideals.html_name }}" value="{{ form.ideals.value }}" type="text"/></td>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Submit -->
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">

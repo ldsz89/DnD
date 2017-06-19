@@ -7,10 +7,15 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .models import Character, Feature
 
 # Create your views here.
+def character_create(request):
+    context = {}
+    return render(request, 'ccreator/character_form.html', context)
+
 class CharacterCreate(CreateView):
     model = Character
     fields = ['name', 'char_class', 'race', 'background', 'alignment', 'level',
@@ -45,9 +50,13 @@ def character_delete(request, pk):
         'character': character
     }
     if request.method == "POST":
-        name = character.name
-        parent_obj_url = character.get_absolute_url()
-        character.delete()
-        # messages.success(request, name+" has been deleted.")
-        return render(request, 'playermanager/characters.html', context)
+        current_user = request.user
+        if character.user == current_user:
+            name = character.name
+            parent_obj_url = character.get_absolute_url()
+            character.delete()
+            # messages.success(request, name+" has been deleted.")
+            return render(request, 'playermanager/characters.html', context)
+        else:
+            messages.error(request, 'This character can only be deleted by the owner')
     return render(request, 'ccreator/confirm_delete.html', context)

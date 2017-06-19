@@ -55,7 +55,8 @@ class Character(models.Model):
 
     def delete(self):
         if self.avatar.name:
-            os.remove(settings.MEDIA_ROOT+'media/'+self.avatar.path)
+            # os.remove(settings.MEDIA_ROOT+self.avatar.path)
+            os.remove(self.avatar.path)
         return super(Character, self).delete()
 
     def __str__(self):
