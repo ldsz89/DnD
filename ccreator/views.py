@@ -12,10 +12,6 @@ from django.contrib import messages
 from .models import Character, Feature
 
 # Create your views here.
-def character_create(request):
-    context = {}
-    return render(request, 'ccreator/character_form.html', context)
-
 class CharacterCreate(CreateView):
     model = Character
     fields = ['name', 'char_class', 'race', 'background', 'alignment', 'level',
