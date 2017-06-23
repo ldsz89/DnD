@@ -24,6 +24,7 @@ class Character(models.Model):
     wisdom = models.IntegerField(null=True, blank=True)
     charisma = models.IntegerField(null=True, blank=True)
     acrobatics = models.IntegerField(null=True, blank=True)
+    acrobatics_prof = models.BooleanField(default=False)
     animal_handling = models.IntegerField(null=True, blank=True)
     arcana = models.IntegerField(null=True, blank=True)
     athletics = models.IntegerField(null=True, blank=True)

@@ -10,6 +10,7 @@ urlpatterns = [
     # /ccreator/update/<character_id>/
     url(r'^character/update/(?P<pk>[0-9]+)/$', views.CharacterUpdate.as_view(), name='character-update'),
     # /ccreator/<character_id>/delete/
-    # url(r'^character/(?P<pk>[0-9]+)/delete/$', views.CharacterDelete.as_view(), name='character-delete'),
     url(r'^character/(?P<pk>[0-9]+)/delete/$', views.character_delete, name='character-delete'),
+    # /ccreator/add/feature/
+    url(r'^character/add/feature/(?P<pk>[0-9]+)/$', views.FeatureCreate.as_view(), name='feature-add'),
 ]

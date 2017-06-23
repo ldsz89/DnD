@@ -1,0 +1,39 @@
+{% extends 'playermanager/base.html' %}
+
+{% block character %}class="active"{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row">
+        <!-- Attributes -->
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header" data-background-color="purple">
+              <h4 class="title">Attributes</h4>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="form-group label-floating">
+                    <td><label class="control-label">{{ form.name.label_tag }}</label></td>
+                    <td><input class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}" value="{{ form.name.value }}" type="number"/></td>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group label-floating">
+                    <td><label class="control-label">{{ form.description.label_tag }}</label></td>
+                    <td><input class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}" value="{{ form.description.value }}" type="number"/></td>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

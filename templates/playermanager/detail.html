@@ -271,6 +271,11 @@
           <p>{{ feature }}</p>
           {% endfor %}
         </div>
+        <div class="card-footer">
+          <!-- <div class="col-md-offset-11 col-md-1"> -->
+            <a href="{% url 'ccreator:feature-add' character.id %}" class="btn btn-primary btn-block">Add</a>
+          <!-- </div> -->
+        </div>
       </div>
     </div>
 

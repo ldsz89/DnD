@@ -9,6 +9,9 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+import requests
+import json
+
 from .models import Character, Feature
 
 # Create your views here.
@@ -23,7 +26,8 @@ class CharacterCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['features'] = Feature.objects.all()
+        response = json.loads(requests.get('http://dnd5eapi.co/api/classes/').text)
+        context['classes'] = response['results'][0]
         return context
 
 class CharacterUpdate(UpdateView):
@@ -35,9 +39,14 @@ class CharacterUpdate(UpdateView):
         'sleight_of_hand', 'stealth', 'survival', 'avatar', 'user',
         'personality', 'ideals', 'bonds', 'flaws']
 
+# TO BE DELETED
 class CharacterDelete(DeleteView):
     models = Character
     success_url = reverse_lazy('playermanager:characters')
+
+class FeatureCreate(CreateView):
+    models = Feature
+    fields = ['name', 'description', 'character']
 
 @login_required(login_url='/accounts/login/')
 def character_delete(request, pk):
