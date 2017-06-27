@@ -83,9 +83,10 @@ class="active"
   						<div class="card-content">
   							<div class="tab-content">
   								<div class="tab-pane active" id="char_class">
-                    {{ classes }}
                     {% for class in classes %}
-                      <p>{{ class }}</p>
+                      <button class="col-lg-3" type="button">
+                        {{ class }}
+                      </button>
                     {% endfor %}
   								</div>
   								<div class="tab-pane" id="race">
@@ -133,6 +134,7 @@ class="active"
   								</div>
   							</div>
   						</div>
+              <div class="card-footer"></div>
   					</div>
   				</div>
         </div>
