@@ -27,11 +27,7 @@ class CharacterCreate(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         data = requests.get('http://dnd5eapi.co/api/classes/')
-        classes = []
-        for c in data.json()['results']:
-            classes.append(c['name'])
-        # context['classes'] = response['results']
-        context['classes'] = classes
+        context['classes'] = data.text
         return context
 
 class CharacterUpdate(UpdateView):

@@ -1,5 +1,7 @@
 {% extends 'playermanager/base.html' %}
 
+{% load static %}
+
 {% block character %}
 class="active"
 {% endblock %}
@@ -83,11 +85,7 @@ class="active"
   						<div class="card-content">
   							<div class="tab-content">
   								<div class="tab-pane active" id="char_class">
-                    {% for class in classes %}
-                      <button class="col-lg-3" type="button">
-                        {{ class }}
-                      </button>
-                    {% endfor %}
+
   								</div>
   								<div class="tab-pane" id="race">
   									<table class="table">
@@ -452,49 +450,17 @@ class="active"
 {% endblock %}
 
 {% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script>
-// ATTEMPT 1
-
-// var xmlhttp = new XMLHttpRequest();
-// var url = "http://dnd5eapi.co/api/races/";
-//
-// xmlhttp.onreadystatechange = function() {
-//   if (this.readyState == 4 && this.status == 200) {
-//     var myArr = JSON.parse(this.responseText);
-//     myFxn(myArr);
-//   }
-// }
-// xmlhttp.open("GET", "http://dnd5eapi.co/api/races/", true);
-// xmlhttp.setRequestHeader("Content-Type", "application/json");
-// xmlhttp.send();
-//
-// function myFxn(arr) {
-//   var out = "";
-//   var i;
-//   for(i = 0; i < arr.length; i++) {
-//     out += '<a href="' + arr[i].url + '">' + arr[i].diaplay + '</a><br>';
-//   }
-//   document.getElementById("race").innerHTML = out;
-// }
-
-
-// ATTEMPT 2
-
-// var data = null;
-//
-// var xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
-//
-// xhr.addEventListener("readystatechange", function() {
-//   if (this.readyState === 4) {
-//     console.log(this.responseText);
-//   }
-// });
-//
-// xhr.open("GET", "http://dnd5eapi.co/api/classes/");
-// xhr.setRequestHeader("cache-control", "no-cache");
-// xhr.setRequestHeader("postman-token", "cbbaa1f2-af02-09c6-367d-40e234be8d91");
-//
-// xhr.send(data);
+  var jsonObj = JSON.parse('{{ classes | escapejs }}');
+  var arr = jsonObj.results;
+  var i = 0;
+  $(document).ready(function() {
+    while(arr) {
+      // $('#char_class').append("<button style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 2px;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'><p style='padding: 10px 0;>'" + arr[i].name + "</p></div><div style='text-align: right; border: black solid 2px;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
+      $('#char_class').append("<button style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 0; padding: 5px 0;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'>" + arr[i].name + "</div><div style='text-align: right;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
+      i++;
+    }
+  });
 </script>
 {% endblock %}
