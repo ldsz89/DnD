@@ -26,8 +26,12 @@ class CharacterCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        data = requests.get('http://dnd5eapi.co/api/classes/')
-        context['classes'] = data.text
+        resp = requests.get('http://dnd5eapi.co/api/classes/')
+        data = json.loads(resp.text)
+        dataDump = json.dumps(data)
+        # context['classes'] = dataDump
+        context['classes'] = json.dumps(json.loads(requests.get('http://dnd5eapi.co/api/classes/').text))
+        context['barbarian'] = json.dumps(json.loads(requests.get('http://dnd5eapi.co/api/classes/1').text))
         return context
 
 class CharacterUpdate(UpdateView):
@@ -38,11 +42,6 @@ class CharacterUpdate(UpdateView):
         'insight', 'intimidation', 'investigation', 'medicine', 'nature', 'perception', 'performance', 'persuasion', 'religion',
         'sleight_of_hand', 'stealth', 'survival', 'avatar', 'user',
         'personality', 'ideals', 'bonds', 'flaws']
-
-# TO BE DELETED
-class CharacterDelete(DeleteView):
-    models = Character
-    success_url = reverse_lazy('playermanager:characters')
 
 class FeatureCreate(CreateView):
     models = Feature

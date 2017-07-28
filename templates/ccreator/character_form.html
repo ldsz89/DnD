@@ -16,7 +16,7 @@ class="active"
         <!-- About -->
         <div class="row">
           <!-- About -->
-          <div class="col-lg-6 col-md-12">
+          <div class="col-md-6 col-lg-6">
             <div class="card">
               <div class="card-header" data-background-color="purple">
                 <h4 class="title">About</h4>
@@ -59,98 +59,570 @@ class="active"
               </div>
             </div>
           </div>
-          <!-- About API Display -->
-          <div class="col-lg-6 col-md-12">
-  					<div class="card card-nav-tabs">
-  						<div class="card-header" data-background-color="purple">
-  							<div class="nav-tabs-navigation">
-  								<div class="nav-tabs-wrapper">
-  									<!-- <span class="nav-tabs-title">Options:</span> -->
-  									<ul class="nav nav-tabs" data-tabs="tabs">
-  										<li class="active">
-  											<a href="#char_class" data-toggle="tab">
-  												Class
-  											<div class="ripple-container"></div></a>
-  										</li>
-  										<li class="">
-  											<a href="#race" data-toggle="tab">
-  												Race
-  											<div class="ripple-container"></div></a>
-  										</li>
-  									</ul>
-  								</div>
-  							</div>
-  						</div>
+          <!-- About API Display | NOT WORKING | Switching to hard code for now -->
+          <div class="col-md-6 col-lg-6">
+            <div class="card card-nav-tabs">
+              <div class="card-header" data-background-color="purple">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <span class="nav-tabs-title">Options:</span>
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                      <li class="active">
+                        <a href="#char_class" data-toggle="tab">Classes</a>
+                      </li>
+                      <li class="">
+                        <a href="#races" data-toggle="tab">Races</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#Barbarian" data-toggle="tab" id="Barbarian_tab">Barbarian</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#bard" data-toggle="tab" id="bard_tab">Bard</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#cleric" data-toggle="tab" id="cleric_tab">Cleric</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#druid" data-toggle="tab" id="druid_tab">Druid</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#figher" data-toggle="tab" id="fighter_tab">Fighter</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#monk" data-toggle="tab" id="monk_tab">Monk</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#paladin" data-toggle="tab" id="paladin_tab">Paladin</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#ranger" data-toggle="tab" id="ranger_tab">Ranger</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#rogue" data-toggle="tab" id="rogue_tab">Rogue</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#sorcerer" data-toggle="tab" id="sorcerer_tab">Sorcerer</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#warlock" data-toggle="tab" id="warlock_tab">Warlock</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#wizard" data-toggle="tab" id="wizard_tab">Wizard</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#dwarf" data-toggle="tab" id="dwarf_tab">Dwarf</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#elf" data-toggle="tab" id="elf_tab">Elf</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#halfling" data-toggle="tab" id="halfling_tab">Halfling</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#human" data-toggle="tab" id="human_tab">Human</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#dragonborn" data-toggle="tab" id="dragonborn_tab">Dragonborn</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#gnome" data-toggle="tab" id="gnome_tab">Gnome</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#half-elf" data-toggle="tab" id="half-elf_tab">Half-Elf</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#half-orc" data-toggle="tab" id="half-orc_tab">Half-Orc</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#tiefling" data-toggle="tab" id="tiefling_tab">Tiefling</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-  						<div class="card-content">
-  							<div class="tab-content">
-  								<div class="tab-pane active" id="char_class">
+              <div class="card-content">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="char_class">
+                    <!-- <table class="table table-hover">
+                      <tbody>
+                        <tr>
+  												<td>Barbarian</td>
+  												<td class="td-actions text-right">
+                            <a href="#Barbarian" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="Barbarian_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Bard</td>
+  												<td class="td-actions text-right">
+                            <a href="#bard" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="bard_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Cleric</td>
+  												<td class="td-actions text-right">
+                            <a href="#cleric" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="cleric_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Druid</td>
+  												<td class="td-actions text-right">
+                            <a href="#druid" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="druid_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Fighter</td>
+  												<td class="td-actions text-right">
+                            <a href="#fighter" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="fighter_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Monk</td>
+  												<td class="td-actions text-right">
+                            <a href="#monk" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="monk_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Paladin</td>
+  												<td class="td-actions text-right">
+                            <a href="#paladin" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="paladin_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Ranger</td>
+  												<td class="td-actions text-right">
+                            <a href="#ranger" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="ranger_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Rogue</td>
+  												<td class="td-actions text-right">
+                            <a href="#rogue" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="rogue_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Sorcerer</td>
+  												<td class="td-actions text-right">
+                            <a href="#sorcerer" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="sorcerer_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Warlock</td>
+  												<td class="td-actions text-right">
+                            <a href="#warlock" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="warlock_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+  												<td>Wizard</td>
+  												<td class="td-actions text-right">
+                            <a href="#wizard" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="wizard_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+                  </div>
 
-  								</div>
-  								<div class="tab-pane" id="race">
-  									<table class="table">
-  										<!-- <tbody>
-  											<tr>
-  												<td>
-  													<div class="checkbox">
+                  <!-- Classes -->
+                  <div class="tab-pane" id="Barbarian">
+                    <h4 class="title">Barbarian</h4>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
   														<label>
-  															<input type="checkbox" name="optionsCheckboxes" checked>
+  															<input type="checkbox" name="optionsProf">
   														</label>
   													</div>
-  												</td>
-  												<td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-  												</td>
-  												<td class="td-actions text-right">
-  													<button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
-  														<i class="material-icons">edit</i>
-  													</button>
-  													<button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-  														<i class="material-icons">close</i>
-  													</button>
-  												</td>
-  											</tr>
-  											<tr>
-  												<td>
-  													<div class="checkbox">
+                          </td>
+                          <td>Animal Handling</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
   														<label>
-  															<input type="checkbox" name="optionsCheckboxes">
+  															<input type="checkbox" name="optionsProf">
   														</label>
   													</div>
-  												</td>
-  												<td>Sign contract for "What are conference organizers afraid of?"</td>
+                          </td>
+                          <td>Athletics</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Intimidation</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Nature</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Perception</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Survival</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div><button type="button" id="barbarian_select" class="btn btn-block">Submit</button></div>
+                  </div>
+                  <div class="tab-pane" id="bard">
+                    <h4 class="title">Bard</h4>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Acrobatics</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Animal Handling</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Arcana</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Athletics</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Deception</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>History</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Insight</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Intimidation</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Investigation</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Medicine</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Nature</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Perception</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Performance</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Persuasion</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Religion</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Sleight of Hand</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Stealth</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+  														<label>
+  															<input type="checkbox" name="optionsProf">
+  														</label>
+  													</div>
+                          </td>
+                          <td>Survival</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div><button type="button" id="bard_select" class="btn btn-block">Submit</button></div>
+                  </div>
+                  <div class="tab-pane" id="cleric"></div>
+                  <div class="tab-pane" id="druid"></div>
+                  <div class="tab-pane" id="fighter"></div>
+                  <div class="tab-pane" id="monk"></div>
+                  <div class="tab-pane" id="paladin"></div>
+                  <div class="tab-pane" id="ranger"></div>
+                  <div class="tab-pane" id="rogue"></div>
+                  <div class="tab-pane" id="sorcerer"></div>
+                  <div class="tab-pane" id="warlock"></div>
+                  <div class="tab-pane" id="wizard"></div>
+
+                  <div class="tab-pane" id="races">
+                    <table class="table table-hover">
+                      <tbody>
+                        <tr>
+  												<td>Dwarf</td>
   												<td class="td-actions text-right">
-  													<button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
-  														<i class="material-icons">edit</i>
-  													</button>
-  													<button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-  														<i class="material-icons">close</i>
-  													</button>
+                            <a href="#dwarf" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="dwarf_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
   												</td>
-  											</tr>
-  										</tbody> -->
-  									</table>
-  								</div>
-  							</div>
-  						</div>
-              <div class="card-footer"></div>
-  					</div>
-  				</div>
+                        </tr>
+                        <tr>
+                          <td>Elf</td>
+  												<td class="td-actions text-right">
+                            <a href="#elf" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="elf_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Halfing</td>
+  												<td class="td-actions text-right">
+                            <a href="#halfling" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="halfling_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Human</td>
+  												<td class="td-actions text-right">
+                            <a href="#human" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="human_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Dragonborn</td>
+  												<td class="td-actions text-right">
+                            <a href="#dragonborn" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="dragonborn_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Gnome</td>
+  												<td class="td-actions text-right">
+                            <a href="#gnome" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="gnome_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Half-Elf</td>
+  												<td class="td-actions text-right">
+                            <a href="#half-elf" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="half-elf_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Half-Orc</td>
+  												<td class="td-actions text-right">
+                            <a href="#half-orc" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="half-orc_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                        <tr>
+                          <td>Tiefling</td>
+  												<td class="td-actions text-right">
+                            <a href="#tiefling" class="btn btn-primary btn-simple btn-xs" data-toggle="tab" id="tiefling_link">
+  														<i class="material-icons">keyboard_arrow_right</i>
+  													</a>
+  												</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Races -->
+                  <div class="tab-pane" id="dwarf"></div>
+                  <div class="tab-pane" id="elf"></div>
+                  <div class="tab-pane" id="halfling"></div>
+                  <div class="tab-pane" id="human"></div>
+                  <div class="tab-pane" id="dragonborn"></div>
+                  <div class="tab-pane" id="gnome"></div>
+                  <div class="tab-pane" id="half-Elf"></div>
+                  <div class="tab-pane" id="half-Orc"></div>
+                  <div class="tab-pane" id="tiefling"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Attributes & About-->
         <div class="row">
           <!-- Attributes -->
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-12 col-md-12">
             <div class="card">
               <div class="card-header" data-background-color="purple">
                 <h4 class="title">Attributes</h4>
               </div>
               <div class="card-content">
                 <div class="row">
-                  <div class="col-md-2">
+                  <div class="col-md-2 col-lg-2">
                     <div class="form-group label-floating">
                       <td><label class="control-label">{{ form.strength.label_tag }}</label></td>
-                      <td><input class="form-control" id="{{ form.strength.id_for_label }}" name="{{ form.strength.html_name }}" value="{{ form.strength.value }}" type="number"/></td>
+                      <td><input class="form-control" id="{{ form.strength.id_for_label }}" name="{{ form.strength.html_name }}" value="{{ form.strength.value }}" type="number"/> <span id="bonus"></span> <span id="mod"></span></td>
                     </div>
                   </div>
                   <div class="col-md-2">
@@ -186,49 +658,7 @@ class="active"
                 </div>
               </div>
               <div class="card-footer">
-                <button class="btn btn-block"><i class="material-icons">casino</i> Randomize</button>
-              </div>
-            </div>
-          </div>
-          <!-- Information -->
-          <div class="col-lg-6 col-md-12">
-            <div class="card">
-              <div class="card-header" data-background-color="purple">
-                <h4 class="title">Information</h4>
-              </div>
-              <div class="card-content table-responsive">
-                <table class="table table-hover">
-                  <thead class="text-warning">
-                    <th>Attribute</th>
-                    <th>Description</th>
-                  </thead>
-                  <tbody>
-                      <tr>
-                        <td>Strength</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Dexterity</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Constitution</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Intelligence</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Wisdom</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>Charisma</td>
-                        <td></td>
-                      </tr>
-                  </tbody>
-                </table>
+                <button type="button" id="randomize" class="btn btn-block"><i class="material-icons">casino</i> Randomize</button>
               </div>
             </div>
           </div>
@@ -412,32 +842,6 @@ class="active"
           </div>
         </div>
 
-        <!-- Features -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header" data-background-color="purple">
-                <h4 class="title">Personality</h4>
-              </div>
-              <div class="card-content">
-                <div class="row">
-                  <div class="col-md-2">
-                    <div class="form-group label-floating">
-                      <td><label class="control-label">{{ form.description.label_tag }}</label></td>
-                      <td><input class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.html_name }}" value="{{ form.description.value }}" type="text"/></td>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="form-group label-floating">
-                      <td><label class="control-label">{{ form.ideals.label_tag }}</label></td>
-                      <td><input class="form-control" id="{{ form.ideals.id_for_label }}" name="{{ form.ideals.html_name }}" value="{{ form.ideals.value }}" type="text"/></td>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Submit -->
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
@@ -449,18 +853,61 @@ class="active"
 </div>
 {% endblock %}
 
+{% load jsonify %}
+
 {% block script %}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="{% static 'ccreator/assets/js/character_form.js' %}"></script>
+
 <script>
-  var jsonObj = JSON.parse('{{ classes | escapejs }}');
-  var arr = jsonObj.results;
-  var i = 0;
-  $(document).ready(function() {
-    while(arr) {
-      // $('#char_class').append("<button style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 2px;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'><p style='padding: 10px 0;>'" + arr[i].name + "</p></div><div style='text-align: right; border: black solid 2px;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
-      $('#char_class').append("<button style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 0; padding: 5px 0;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'>" + arr[i].name + "</div><div style='text-align: right;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
-      i++;
-    }
-  });
+  var js_variable = {{classes | jsonify }};
+  function_in_standalone_js(js_variable);
+
+
+  // $(document).ready(function() {
+  //   console.log("Page is loaded");
+  //   classMenu();
+  //   console.log("Class menu loaded");
+  //
+  //   $('#Barbarian').click(function() {
+  //     console.log("Barbarian fxn clicked");
+  //     var oneObj = JSON.parse('\'' + '{{ Barbarian | escapejs }}');
+  //     // $('#char_class').html(oneObj);
+  //   });
+  //
+  //   $('#Bard').click(function() {
+  //     console.log("Bard was clicked");
+  //   });
+  //
+  //   $('#randomize').click(function() {
+  //     console.log("Randomize clicked");
+  //   });
+  // });
+  //
+  // function classMenu() {
+  //   // $('#char_class').html("");
+  //
+  //   var jsonObj;
+  //   try{
+  //     jsonObj = JSON.parse('{{ classes }}');
+  //     // jsonObj = {{ classes | escapejs }}
+  //     var arr = jsonObj;
+  //     var i = 0;
+  //   }
+  //   catch(err) {
+  //     $('#char_class').html(err.message);
+  //     $('#char_class').append('<br>{{ classes }}');
+  //   }
+  //
+  //   while(arr) {
+  //     // $('#char_class').append("<button style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 2px;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'><p style='padding: 10px 0;>'" + arr[i].name + "</p></div><div style='text-align: right; border: black solid 2px;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
+  //     // $('#char_class').append("<button id=" + arr[i].name + " type='button' style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 0; padding: 5px 0;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'>" + arr[i].name + "</div><div style='text-align: right;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
+  //     // $('#char_class').append("<button type='button' style='text-align: left;' class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div style='border: black solid 0; padding: 5px 0;' class='col-xs-6 col-sm-10 col-md-10 col-lg-10'></div><div style='text-align: right;' class='col-xs-2 col-sm-2 col-md-2  col-lg-2'><i class='material-icons'>keyboard_arrow_right</i></div></button>");
+  //     i++;
+  //   }
+  //
+  //   return;
+  // }
 </script>
 {% endblock %}
